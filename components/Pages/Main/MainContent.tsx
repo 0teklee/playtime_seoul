@@ -1,8 +1,14 @@
+import menuRecoilState from "libs/recoil/menuState";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 
 const MainContent = () => {
+  const mainQuery = useRecoilValue(menuRecoilState);
+  console.log(mainQuery);
   return (
-    <>
+    <__Wrapper
+      visible={mainQuery === "workshopKr" || mainQuery === "workshopEn"}
+    >
       <__Text>
         플레이타임 워크숍은 온라인 공간을 매개체로 사용하는 교육 플랫폼으로,{" "}
         네덜란드 미술 대학 입시를 목표로 하는 학생들을 1년 기준 최대 5명 {`\n`}
@@ -19,11 +25,16 @@ const MainContent = () => {
         이미지를 빌려왔습니다. 영화에 대한 더 많은 정보는
         https://www.imdb.com/title/tt0062136/ 를 참고하세요.
       </__SubText>
-    </>
+    </__Wrapper>
   );
 };
 
 export default MainContent;
+
+const __Wrapper = styled.div<{ visible: boolean }>`
+  opacity: ${(props) => (props.visible ? "1" : "0")};
+  transition: 0.5s;
+`;
 
 const __Text = styled.p`
   font-size: 1rem;
