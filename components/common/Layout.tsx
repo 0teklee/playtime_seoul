@@ -13,11 +13,17 @@ const Layout = ({ children }: { children: ReactNode }) => {
   const setMenuState = (path: string) => {
     setMenuRecoilState((prev) => (prev = path));
   };
+
   return (
     <__Wrapper>
       <__ContentWrapper>
         <__BlackSideBar />
-        <__LogoButton onClick={() => router.push("/")}>
+        <__LogoButton
+          onClick={() => {
+            setMenuState("");
+            router.push("/");
+          }}
+        >
           <Image
             alt="playtime_seoul_logo"
             src="/asset/main_logo.png"
