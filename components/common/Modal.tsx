@@ -158,14 +158,22 @@ const __SetCookie = styled.div`
 const __HideWrapper = styled.div`
   ${theme.displayFlex("center", "center")}
   position: fixed;
-  bottom: 0;
-  left: 0;
+  top: 0;
+  left: 1.5%;
   width: 1.5%;
 `;
+
 const ____HideButtonHeader = styled(__ButtonHeader)`
   padding: 0;
+
   width: 100%;
+  height: 100vh;
+
   button {
+    position: relative;
+    top: 3px;
+    right: -2px;
     margin-right: 0;
+    padding: 0;
   }
 `;
